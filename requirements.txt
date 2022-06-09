@@ -1,0 +1,9 @@
+beautifulsoup4==4.11.1
+click==8.0.3
+newspaper==0.1.0.7
+newspaper3k==0.2.8
+nltk==3.6.5
+pydantic==1.9.1
+requests==2.25.1
+textstat==0.7.2
+urllib3==1.26.4
