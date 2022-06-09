@@ -1,6 +1,5 @@
 beautifulsoup4==4.11.1
 click==8.0.3
-newspaper==0.1.0.7
 newspaper3k==0.2.8
 nltk==3.6.5
 pydantic==1.9.1

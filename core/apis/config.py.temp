@@ -1,0 +1,7 @@
+SERP_STAT_ENDPOINT = 'https://api.serpstat.com/v3'
+SERP_STAT_TOKEN = ''
+DEFAULT_SE = 'g_us'
+
+SEMRUSH_ENDPOINT = 'https://api.semrush.com'
+SEMRUSH_TOKEN = ''
+DEFAULT_DATABASE = 'us'
