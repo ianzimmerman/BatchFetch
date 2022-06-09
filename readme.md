@@ -11,7 +11,8 @@ pip install -r requirements.txt
 Rename core/apis/config.py.temp to config.py and supply API tokens
 
 # Step 3
-Run it
+Run it from your venv
 ```
+source .venv/bin/activate # if needed
 python fetch.py /path/to/input.csv -c url -f project_name --api_key=XXXXXXXXXXXXXXXXXXX
 ```
