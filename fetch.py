@@ -35,7 +35,7 @@ def main():
     builder.add_headers(TextExtract.headers())
 
     kw_output_file = f'output_files/{args.f}_keyword_results_{timestr}.csv'
-    keyword_file = open(kw_output_file, mode="w")
+    keyword_file = open(kw_output_file, mode="w", encoding="utf-8")
     keyword_writer = csv.DictWriter(keyword_file, SEMRushQuery.headers(), extrasaction='ignore')
     keyword_writer.writeheader()
     
