@@ -190,6 +190,16 @@ class SEMRushQuery(AbstractQuery):
 
             return [QueryResult(**k) for k in keywords]
 
+    def keyword_results(self):
+        if self.response.text.startswith("ERROR"):
+            return None
+        else:
+            rows = self.response.text.split("\r\n")
+            headers = [h for h in rows.pop(0).split(";")]
+            values = [v for v in rows.pop(0).split(";")]
+
+            return dict(zip(headers, values))
+
     def unmap(self, header):
         map = { h[1]: h[0] for h in self._headers}
 
