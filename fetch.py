@@ -34,6 +34,10 @@ def main():
 
     parser.add_argument('--api_key', metavar='api_key', type=str, help='apikey')
 
+    parser.add_argument('-d', "--delay", type=float, help='seconds between requests', default=1.5)
+    parser.add_argument('-l', "--limit", type=int, help='max rows to pull', default=100_000)
+    parser.add_argument('-o', "--offset", type=int, help='initial rows to skip', default=0)
+
     args = parser.parse_args()
 
     timestr = time.strftime("%Y%m%d-%H%M%S")
@@ -57,6 +61,13 @@ def main():
     
     with builder:
         for i, row in enumerate(builder.input_reader):
+            if i < (args.offset):
+                continue
+            
+            if i >= (args.limit + args.offset):
+                print(f"Row limit ({args.limit}) reached!\nProcessed rows {args.offset + 1} -> {i}")
+                break
+            
             key_value = row.get(args.c)
             print(i+1, key_value)
 
@@ -126,6 +137,7 @@ def main():
                 new_data = semrush.keyword_results()
                 builder.append_data(row, new_data)
 
+            time.sleep(args.delay)
         
     if args.keywords:
         keyword_file.close()
